@@ -57,7 +57,9 @@ class PartyTestsDatabase(unittest.TestCase):
         db.drop_all()
 
     def test_games(self):
+        """test games page."""
 
+        #tests to see if both games show up
         result = self.client.get("/games")
         self.assertIn(b"Fun Game", result.data)
         self.assertIn(b"Another Game", result.data)
