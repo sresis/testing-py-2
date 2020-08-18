@@ -29,9 +29,12 @@ class PartyTests(unittest.TestCase):
                                   data={"name": "Jane",
                                         "email": "jane@jane.com"},
                                   follow_redirects=True)
+        self.assertNotIn(b"Please RSVP", result.data)
+        self.assertIn(b"Party Details", result.data)
+
         # FIXME: Once we RSVP, we should see the party details, but
         # not the RSVP form
-        print("FIXME")
+
 
 
 class PartyTestsDatabase(unittest.TestCase):
